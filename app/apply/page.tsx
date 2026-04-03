@@ -1,0 +1,29 @@
+import Link from "next/link";
+import { ApplyWizard } from "@/components/apply-wizard";
+
+export default function ApplyPage() {
+  return (
+    <div className="min-h-screen bg-surface text-cream">
+      <header className="flex items-center justify-between px-6 py-6 md:px-10">
+        <Link
+          href="/"
+          className="flex items-baseline gap-2 text-violet transition-opacity hover:opacity-90"
+        >
+          <span className="font-display text-2xl italic leading-none">
+            &#8767;
+          </span>
+          <span className="font-display text-xl italic tracking-tight">
+            5ounds
+          </span>
+        </Link>
+        <Link
+          href="/auth"
+          className="text-sm text-cream/70 hover:text-cream"
+        >
+          Sign in
+        </Link>
+      </header>
+      <ApplyWizard />
+    </div>
+  );
+}

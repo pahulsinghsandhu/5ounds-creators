@@ -1,0 +1,23 @@
+/** Common territory names for producer applications (sentence case labels). */
+export const COUNTRY_OPTIONS: readonly string[] = [
+  "United kingdom",
+  "United states",
+  "Canada",
+  "Australia",
+  "Germany",
+  "France",
+  "Spain",
+  "Italy",
+  "Netherlands",
+  "Sweden",
+  "Norway",
+  "Ireland",
+  "India",
+  "Japan",
+  "South korea",
+  "Brazil",
+  "Mexico",
+  "South africa",
+  "New zealand",
+  "Other",
+] as const;
