@@ -223,7 +223,12 @@ export function ApplyWizard() {
   async function saveProfile(e: React.FormEvent) {
     e.preventDefault();
     setProfileMessage(null);
-    if (!userId) return;
+    if (!userId) {
+      setProfileMessage(
+        "Review mode: sign in to save your profile to the server.",
+      );
+      return;
+    }
     setSavingProfile(true);
     try {
       const supabase = createBrowserSupabaseClient();
@@ -266,7 +271,14 @@ export function ApplyWizard() {
   }
 
   async function submitSamples() {
-    if (!producer || !userId) return;
+    if (!producer || !userId) {
+      if (!userId) {
+        setSampleError(
+          "Review mode: sign in to submit samples to the server.",
+        );
+      }
+      return;
+    }
     setSavingSamples(true);
     setSampleError(null);
     try {
@@ -287,7 +299,9 @@ export function ApplyWizard() {
   }
 
   async function saveStripe() {
-    if (!producer || !userId) return;
+    if (!producer || !userId) {
+      return;
+    }
     setSavingStripe(true);
     try {
       const supabase = createBrowserSupabaseClient();
@@ -320,22 +334,6 @@ export function ApplyWizard() {
     return (
       <div className="mx-auto max-w-3xl px-6 py-20 text-center text-cream/60">
         Loading application
-      </div>
-    );
-  }
-
-  if (!userId) {
-    return (
-      <div className="mx-auto max-w-lg px-6 py-20 text-center">
-        <p className="text-cream/80">
-          Sign in to start your producer application.
-        </p>
-        <Link
-          href="/auth"
-          className="mt-6 inline-flex rounded-lg bg-accent px-6 py-3 text-sm font-medium text-cream"
-        >
-          Sign in
-        </Link>
       </div>
     );
   }

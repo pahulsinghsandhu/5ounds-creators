@@ -19,10 +19,10 @@ export default function HomePage() {
         <LogoMark />
         <nav className="flex items-center gap-3">
           <Link
-            href="/auth"
+            href="/dashboard"
             className="rounded-lg px-4 py-2 text-sm text-cream/90 transition-colors hover:text-cream"
           >
-            Sign in
+            Dashboard
           </Link>
           <Link
             href="/apply"

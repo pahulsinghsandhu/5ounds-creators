@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
 export const dynamic = "force-dynamic";
@@ -33,13 +32,21 @@ export default async function EarningsPage() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) redirect("/auth");
 
-  const { data: producer } = await supabase
-    .from("producers")
-    .select("id, stripe_account_id, status")
-    .eq("user_id", user.id)
-    .maybeSingle();
+  let producer: {
+    id?: string;
+    stripe_account_id?: string | null;
+    status?: string | null;
+  } | null = null;
+
+  if (user) {
+    const { data: row } = await supabase
+      .from("producers")
+      .select("id, stripe_account_id, status")
+      .eq("user_id", user.id)
+      .maybeSingle();
+    producer = row;
+  }
 
   const producerId = producer?.id as string | undefined;
   const stripeId =

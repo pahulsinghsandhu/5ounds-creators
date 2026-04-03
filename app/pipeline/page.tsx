@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import { createServerSupabaseClient } from "@/lib/supabase/server";
 
 export const dynamic = "force-dynamic";
 
@@ -68,12 +66,6 @@ export default async function PipelinePage({
 }: {
   searchParams: Search;
 }) {
-  const supabase = createServerSupabaseClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) redirect("/auth");
-
   const raw = searchParams.track;
   const trackId = Array.isArray(raw) ? raw[0] : raw;
   const activeIdx = stageIndexFromTrack(trackId);

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
 export const dynamic = "force-dynamic";
@@ -119,25 +118,30 @@ export default async function DashboardPage() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) redirect("/auth");
 
-  const { data: producer } = await supabase
-    .from("producers")
-    .select("id, name, status")
-    .eq("user_id", user.id)
-    .maybeSingle();
-
-  const producerId = producer?.id as string | undefined;
+  let producer: { id?: string; name?: string | null; status?: string | null } | null =
+    null;
 
   let tracks: TrackRow[] = [];
   let versions: VersionRow[] = [];
   let payouts: PayoutRow[] = [];
 
-  if (producerId) {
+  if (user) {
+    const { data: row } = await supabase
+      .from("producers")
+      .select("id, name, status")
+      .eq("user_id", user.id)
+      .maybeSingle();
+    producer = row;
+  }
+
+  const resolvedProducerId = producer?.id as string | undefined;
+
+  if (resolvedProducerId) {
     const { data: t } = await supabase
       .from("producer_tracks")
       .select("id, title, status, quality_score")
-      .eq("producer_id", producerId);
+      .eq("producer_id", resolvedProducerId);
     tracks = (t ?? []) as TrackRow[];
 
     const ids = tracks.map((x) => x.id);
@@ -152,7 +156,7 @@ export default async function DashboardPage() {
     const { data: p } = await supabase
       .from("producer_payouts")
       .select("amount, status")
-      .eq("producer_id", producerId);
+      .eq("producer_id", resolvedProducerId);
     payouts = (p ?? []) as PayoutRow[];
   }
 
@@ -181,9 +185,11 @@ export default async function DashboardPage() {
             Producer dashboard
           </h1>
           <p className="text-sm text-cream/55">
-            {producer?.name
-              ? `${producer.name} · ${(producer as { status?: string }).status ?? "pending"}`
-              : "Complete your application to unlock uploads."}
+            {!user
+              ? "Review preview · Sign in to load your producer data."
+              : producer?.name
+                ? `${producer.name} · ${(producer as { status?: string }).status ?? "pending"}`
+                : "Complete your application to unlock uploads."}
           </p>
         </div>
         <nav className="flex flex-wrap gap-2">

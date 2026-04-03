@@ -17,10 +17,10 @@ export default function ApplyPage() {
           </span>
         </Link>
         <Link
-          href="/auth"
+          href="/dashboard"
           className="text-sm text-cream/70 hover:text-cream"
         >
-          Sign in
+          Dashboard
         </Link>
       </header>
       <ApplyWizard />
