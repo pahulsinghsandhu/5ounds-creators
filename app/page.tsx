@@ -66,7 +66,7 @@ export default function HomePage() {
               Vocal detection gate
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-cream/65">
-              Every track scanned by acrcloud ai. Vocals detected = instant
+              Every track scanned by ACRCloud AI. Vocals detected = instant
               rejection. 5ounds is 100% instrumental. No exceptions.
             </p>
           </article>

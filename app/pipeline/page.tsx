@@ -9,7 +9,7 @@ const STAGES: { key: string; label: string; description: string }[] = [
   {
     key: "vocal",
     label: "Vocal gate",
-    description: "Full-file acrcloud scan for lyrical content.",
+    description: "Full-file ACRCloud scan for lyrical content.",
   },
   {
     key: "analysis",

@@ -289,7 +289,7 @@ export function UploadWorkbench(props: {
                   Gate 2 · Vocal detection gate
                 </h3>
                 <p className="mt-2 text-sm text-cream/60">
-                  Acrcloud ai scans the entire file. Any vocal content above
+                  ACRCloud AI scans the entire file. Any vocal content above
                   -30db = instant rejection. No exceptions.
                 </p>
                 <p className="mt-3 text-xs uppercase tracking-wide text-cream/40">
