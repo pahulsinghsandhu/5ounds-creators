@@ -6,8 +6,8 @@ function LogoMark() {
       href="/"
       className="flex items-baseline gap-2 text-violet transition-opacity hover:opacity-90"
     >
-      <span className="font-display text-2xl italic leading-none">&#8767;</span>
-      <span className="font-display text-xl italic tracking-tight">5ounds</span>
+      <span className="font-sans text-2xl font-bold leading-none">&#8767;</span>
+      <span className="font-sans text-xl font-bold tracking-tight">5ounds</span>
     </Link>
   );
 }
@@ -26,7 +26,7 @@ export default function HomePage() {
           </Link>
           <Link
             href="/apply"
-            className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-cream transition-opacity hover:opacity-90"
+            className="rounded-lg bg-accent px-4 py-2 text-sm font-normal text-cream transition-opacity hover:opacity-90"
           >
             Apply now
           </Link>
@@ -35,7 +35,7 @@ export default function HomePage() {
 
       <main className="px-6 pb-20 pt-10 md:px-10 lg:px-16 lg:pt-16">
         <section className="mx-auto max-w-4xl text-center lg:text-left">
-          <h1 className="font-display text-balance text-4xl italic leading-tight tracking-tight text-cream md:text-5xl lg:text-6xl">
+          <h1 className="font-sans text-balance text-4xl font-bold leading-tight tracking-tight text-cream md:text-5xl lg:text-6xl">
             The platform for instrumental producers
           </h1>
           <p className="mt-6 text-lg text-cream/70 md:text-xl">
@@ -44,7 +44,7 @@ export default function HomePage() {
           <div className="mt-10 flex justify-center lg:justify-start">
             <Link
               href="/apply"
-              className="inline-flex rounded-lg bg-accent px-8 py-3 text-base font-medium text-cream transition-opacity hover:opacity-90"
+              className="inline-flex rounded-lg bg-accent px-8 py-3 text-base font-normal text-cream transition-opacity hover:opacity-90"
             >
               Apply as a producer
             </Link>
@@ -53,7 +53,7 @@ export default function HomePage() {
 
         <section className="mx-auto mt-20 grid max-w-6xl gap-6 md:grid-cols-3">
           <article className="hairline-border rounded-xl border border-solid bg-card p-6 md:p-8">
-            <h2 className="font-display text-xl italic text-cream">
+            <h2 className="font-sans text-xl font-bold text-cream">
               Upload once &rarr; 7 scene versions
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-cream/65">
@@ -62,7 +62,7 @@ export default function HomePage() {
             </p>
           </article>
           <article className="hairline-border rounded-xl border border-solid bg-card p-6 md:p-8">
-            <h2 className="font-display text-xl italic text-cream">
+            <h2 className="font-sans text-xl font-bold text-cream">
               Vocal detection gate
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-cream/65">
@@ -71,7 +71,7 @@ export default function HomePage() {
             </p>
           </article>
           <article className="hairline-border rounded-xl border border-solid bg-card p-6 md:p-8 md:col-span-1">
-            <h2 className="font-display text-xl italic text-cream">
+            <h2 className="font-sans text-xl font-bold text-cream">
               Frequency engine applied
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-cream/65">

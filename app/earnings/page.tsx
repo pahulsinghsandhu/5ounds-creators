@@ -165,7 +165,7 @@ export default async function EarningsPage() {
           <Link href="/dashboard" className="text-sm text-violet hover:underline">
             Dashboard
           </Link>
-          <h1 className="mt-2 font-display text-3xl italic">Earnings</h1>
+          <h1 className="mt-2 font-sans text-3xl font-bold">Earnings</h1>
         </div>
         <Link
           href="/upload"
@@ -193,22 +193,22 @@ export default async function EarningsPage() {
               <p className="text-xs uppercase tracking-wide text-cream/45">
                 {c.label}
               </p>
-              <p className="mt-2 text-2xl font-semibold">{c.value}</p>
+              <p className="mt-2 text-2xl font-bold">{c.value}</p>
             </div>
           ))}
         </section>
 
         <section>
-          <h2 className="font-display text-xl italic">Track breakdown</h2>
+          <h2 className="font-sans text-xl font-bold">Track breakdown</h2>
           <div className="mt-4 overflow-x-auto rounded-xl border border-white/[0.08] bg-card">
             <table className="min-w-full text-left text-sm">
               <thead className="border-b border-white/[0.08] text-cream/50">
                 <tr>
-                  <th className="px-4 py-3 font-medium">Track name</th>
-                  <th className="px-4 py-3 font-medium">Scene</th>
-                  <th className="px-4 py-3 font-medium">Streams</th>
-                  <th className="px-4 py-3 font-medium">Rate</th>
-                  <th className="px-4 py-3 font-medium">Earned</th>
+                  <th className="px-4 py-3 font-normal">Track name</th>
+                  <th className="px-4 py-3 font-normal">Scene</th>
+                  <th className="px-4 py-3 font-normal">Streams</th>
+                  <th className="px-4 py-3 font-normal">Rate</th>
+                  <th className="px-4 py-3 font-normal">Earned</th>
                 </tr>
               </thead>
               <tbody>
@@ -241,7 +241,7 @@ export default async function EarningsPage() {
         </section>
 
         <section className="hairline-border rounded-xl border border-solid bg-card p-6">
-          <h2 className="font-display text-xl italic">Stripe Connect</h2>
+          <h2 className="font-sans text-xl font-bold">Stripe Connect</h2>
           <p className="mt-2 text-sm text-cream/65">
             Connect your Stripe account to receive monthly payouts. Onboarding
             opens in a new window and returns you here when complete.
@@ -258,12 +258,12 @@ export default async function EarningsPage() {
                 href="https://stripe.com/connect"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-cream"
+                className="inline-flex rounded-lg bg-accent px-5 py-2.5 text-sm font-normal text-cream"
               >
                 Stripe Connect onboarding
               </a>
             ) : (
-              <span className="inline-flex cursor-not-allowed rounded-lg bg-white/10 px-5 py-2.5 text-sm font-medium text-cream/40">
+              <span className="inline-flex cursor-not-allowed rounded-lg bg-white/10 px-5 py-2.5 text-sm font-normal text-cream/40">
                 Stripe Connect onboarding
               </span>
             )}
@@ -276,16 +276,16 @@ export default async function EarningsPage() {
         </section>
 
         <section>
-          <h2 className="font-display text-xl italic">Payout history</h2>
+          <h2 className="font-sans text-xl font-bold">Payout history</h2>
           <div className="mt-4 overflow-x-auto rounded-xl border border-white/[0.08] bg-card">
             <table className="min-w-full text-left text-sm">
               <thead className="border-b border-white/[0.08] text-cream/50">
                 <tr>
-                  <th className="px-4 py-3 font-medium">Date</th>
-                  <th className="px-4 py-3 font-medium">Period</th>
-                  <th className="px-4 py-3 font-medium">Streams</th>
-                  <th className="px-4 py-3 font-medium">Amount</th>
-                  <th className="px-4 py-3 font-medium">Status</th>
+                  <th className="px-4 py-3 font-normal">Date</th>
+                  <th className="px-4 py-3 font-normal">Period</th>
+                  <th className="px-4 py-3 font-normal">Streams</th>
+                  <th className="px-4 py-3 font-normal">Amount</th>
+                  <th className="px-4 py-3 font-normal">Status</th>
                 </tr>
               </thead>
               <tbody>

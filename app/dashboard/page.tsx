@@ -229,7 +229,7 @@ export default async function DashboardPage() {
           <Link href="/" className="text-sm text-violet hover:opacity-90">
             &#8767; 5ounds
           </Link>
-          <h1 className="mt-2 font-display text-3xl italic text-cream">
+          <h1 className="mt-2 font-sans text-3xl font-bold text-cream">
             Producer dashboard
           </h1>
           <p className="text-sm text-cream/55">
@@ -243,7 +243,7 @@ export default async function DashboardPage() {
         <nav className="flex flex-wrap gap-2">
           <Link
             href="/upload"
-            className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-cream"
+            className="rounded-lg bg-accent px-4 py-2 text-sm font-normal text-cream"
           >
             Upload
           </Link>
@@ -274,7 +274,7 @@ export default async function DashboardPage() {
               <p className="text-xs uppercase tracking-wide text-cream/45">
                 {card.label}
               </p>
-              <p className="mt-2 text-2xl font-semibold text-cream">
+              <p className="mt-2 text-2xl font-bold text-cream">
                 {card.value}
               </p>
             </div>
@@ -282,16 +282,16 @@ export default async function DashboardPage() {
         </section>
 
         <section>
-          <h2 className="font-display text-xl italic text-cream">Catalogue</h2>
+          <h2 className="font-sans text-xl font-bold text-cream">Catalogue</h2>
           <div className="mt-4 overflow-x-auto rounded-xl border border-white/[0.08] bg-card">
             <table className="min-w-full text-left text-sm">
               <thead className="border-b border-white/[0.08] text-cream/50">
                 <tr>
-                  <th className="px-4 py-3 font-medium">Track name</th>
-                  <th className="px-4 py-3 font-medium">Scene versions</th>
-                  <th className="px-4 py-3 font-medium">Streams</th>
-                  <th className="px-4 py-3 font-medium">Status</th>
-                  <th className="px-4 py-3 font-medium">Actions</th>
+                  <th className="px-4 py-3 font-normal">Track name</th>
+                  <th className="px-4 py-3 font-normal">Scene versions</th>
+                  <th className="px-4 py-3 font-normal">Streams</th>
+                  <th className="px-4 py-3 font-normal">Status</th>
+                  <th className="px-4 py-3 font-normal">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -337,7 +337,7 @@ export default async function DashboardPage() {
                         <td className="px-4 py-3 text-cream/70">{streams}</td>
                         <td className="px-4 py-3">
                           <span
-                            className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 ${badgeClass(badge)}`}
+                            className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-normal ring-1 ${badgeClass(badge)}`}
                           >
                             {badge === "scoring" ? "Scoring" : badge}
                           </span>
@@ -360,7 +360,7 @@ export default async function DashboardPage() {
         </section>
 
         <section>
-          <h2 className="font-display text-xl italic text-cream">
+          <h2 className="font-sans text-xl font-bold text-cream">
             Notifications
           </h2>
           <ul className="mt-4 space-y-3">
@@ -376,7 +376,7 @@ export default async function DashboardPage() {
                   key={n.id}
                   className={`hairline-border rounded-xl border border-l-4 border-solid bg-card p-4 ${border}`}
                 >
-                  <p className="font-medium text-cream">{n.title}</p>
+                  <p className="font-bold text-cream">{n.title}</p>
                   <p className="mt-1 text-sm text-cream/65">{n.description}</p>
                   <p className="mt-2 text-xs text-cream/40">{n.at}</p>
                 </li>

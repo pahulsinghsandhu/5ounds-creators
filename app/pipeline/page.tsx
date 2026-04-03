@@ -78,7 +78,7 @@ export default async function PipelinePage({
         <Link href="/dashboard" className="text-sm text-violet hover:underline">
           Back to dashboard
         </Link>
-        <h1 className="mt-3 font-display text-3xl italic">Processing pipeline</h1>
+        <h1 className="mt-3 font-sans text-3xl font-bold">Processing pipeline</h1>
         <p className="mt-2 text-sm text-cream/55">
           Live status for mastering, transforms, and catalogue release.
         </p>
@@ -103,7 +103,7 @@ export default async function PipelinePage({
                   }`}
                 >
                   <p
-                    className={`text-xs font-semibold uppercase tracking-wide ${
+                    className={`text-xs font-bold uppercase tracking-wide ${
                       active
                         ? "text-violet"
                         : done
@@ -138,7 +138,7 @@ export default async function PipelinePage({
         </section>
 
         <section>
-          <h2 className="font-display text-xl italic text-cream">
+          <h2 className="font-sans text-xl font-bold text-cream">
             Scene transformation targets
           </h2>
           <p className="mt-2 text-sm text-cream/55">
@@ -157,7 +157,7 @@ export default async function PipelinePage({
                       : "border-white/[0.1] bg-card/60 text-cream/45"
                   }`}
                 >
-                  <span className="block font-medium">{cell.label}</span>
+                  <span className="block font-normal">{cell.label}</span>
                   <span className="mt-1 block text-xs text-cream/50">
                     {cell.hz} hz
                   </span>

@@ -71,7 +71,7 @@ export function AuthForm() {
       <div>
         <label
           htmlFor="email"
-          className="block text-sm font-medium text-cream/80"
+          className="block text-sm font-normal text-cream/80"
         >
           Email
         </label>
@@ -89,7 +89,7 @@ export function AuthForm() {
       <div>
         <label
           htmlFor="password"
-          className="block text-sm font-medium text-cream/80"
+          className="block text-sm font-normal text-cream/80"
         >
           Password
         </label>
@@ -120,7 +120,7 @@ export function AuthForm() {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-lg bg-accent py-3 text-sm font-medium text-cream transition-opacity disabled:opacity-60"
+        className="w-full rounded-lg bg-accent py-3 text-sm font-normal text-cream transition-opacity disabled:opacity-60"
       >
         {loading
           ? "Please wait"

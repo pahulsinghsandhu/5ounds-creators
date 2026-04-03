@@ -72,7 +72,7 @@ function mockVocalScan(file: File, durationSec: number): VocalResult {
 function stepBadge(complete: boolean, label: string) {
   return (
     <span
-      className={`inline-flex rounded-full px-3 py-1 text-xs font-medium ${
+      className={`inline-flex rounded-full px-3 py-1 text-xs font-normal ${
         complete
           ? "bg-emerald-500/15 text-emerald-300 ring-1 ring-emerald-500/30"
           : "bg-white/5 text-cream/50 ring-1 ring-white/10"
@@ -342,7 +342,7 @@ export function ApplyWizard() {
             className="hairline-border rounded-xl border border-solid bg-card p-6 md:p-8"
           >
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <h2 className="font-display text-xl italic text-cream">
+              <h2 className="font-sans text-xl font-bold text-cream">
                 Step {s.n} &mdash; {s.title}
               </h2>
               {s.n === 1
@@ -414,7 +414,7 @@ export function ApplyWizard() {
                 <button
                   type="submit"
                   disabled={savingProfile}
-                  className="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-cream disabled:opacity-60"
+                  className="rounded-lg bg-accent px-5 py-2.5 text-sm font-normal text-cream disabled:opacity-60"
                 >
                   {savingProfile ? "Saving" : "Save and continue"}
                 </button>
@@ -465,7 +465,7 @@ export function ApplyWizard() {
                         }
                       }}
                     >
-                      <p className="font-medium text-cream">
+                      <p className="font-normal text-cream">
                         Drag and drop up to 3 sample tracks
                       </p>
                       <p className="mt-2 text-sm text-cream/55">
@@ -493,11 +493,11 @@ export function ApplyWizard() {
                                 Scanning
                               </span>
                             ) : s.vocal?.pass ? (
-                              <span className="text-xs font-medium text-emerald-300">
+                              <span className="text-xs font-normal text-emerald-300">
                                 Passed vocal gate
                               </span>
                             ) : s.vocal && !s.vocal.pass ? (
-                              <span className="text-xs font-medium text-red-300">
+                              <span className="text-xs font-normal text-red-300">
                                 Rejected
                               </span>
                             ) : null}
@@ -516,7 +516,7 @@ export function ApplyWizard() {
                         !step2Complete || savingSamples || reviewStatus === "in_review"
                       }
                       onClick={() => void submitSamples()}
-                      className="mt-6 rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-cream disabled:opacity-40"
+                      className="mt-6 rounded-lg bg-accent px-5 py-2.5 text-sm font-normal text-cream disabled:opacity-40"
                     >
                       {reviewStatus === "in_review"
                         ? "Samples submitted"
@@ -531,7 +531,7 @@ export function ApplyWizard() {
 
             {s.n === 3 ? (
               <div className="mt-6 space-y-3 text-sm text-cream/70">
-                <p className="inline-flex rounded-full bg-accent/15 px-3 py-1 text-xs font-medium text-violet ring-1 ring-accent/30">
+                <p className="inline-flex rounded-full bg-accent/15 px-3 py-1 text-xs font-normal text-violet ring-1 ring-accent/30">
                   {reviewStatus === "in_review"
                     ? "In review"
                     : reviewStatus === "approved" || reviewStatus === "verified"
@@ -564,7 +564,7 @@ export function ApplyWizard() {
                       href="https://stripe.com/connect"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-cream"
+                      className="inline-flex rounded-lg bg-accent px-5 py-2.5 text-sm font-normal text-cream"
                     >
                       Open Stripe Connect
                     </a>
@@ -587,7 +587,7 @@ export function ApplyWizard() {
                       type="button"
                       disabled={savingStripe || !stripeAccountId.trim()}
                       onClick={() => void saveStripe()}
-                      className="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-cream disabled:opacity-40"
+                      className="rounded-lg bg-accent px-5 py-2.5 text-sm font-normal text-cream disabled:opacity-40"
                     >
                       {savingStripe ? "Saving" : "Save Stripe account"}
                     </button>
@@ -605,7 +605,7 @@ export function ApplyWizard() {
                   </p>
                 ) : (
                   <div className="space-y-2 text-sm text-cream/80">
-                    <p className="text-base font-medium text-cream">
+                    <p className="text-base font-bold text-cream">
                       Verified producer
                     </p>
                     <p>
@@ -615,7 +615,7 @@ export function ApplyWizard() {
                     </p>
                     <Link
                       href="/upload"
-                      className="mt-4 inline-flex rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-cream"
+                      className="mt-4 inline-flex rounded-lg bg-accent px-5 py-2.5 text-sm font-normal text-cream"
                     >
                       Go to upload
                     </Link>

@@ -9,10 +9,10 @@ export default function AuthPage() {
           href="/"
           className="flex flex-col items-center gap-1 text-violet transition-opacity hover:opacity-90"
         >
-          <span className="font-display text-3xl italic leading-none">
+          <span className="font-sans text-3xl font-bold leading-none">
             &#8767;
           </span>
-          <span className="font-display text-2xl italic tracking-tight">
+          <span className="font-sans text-2xl font-bold tracking-tight">
             5ounds
           </span>
         </Link>

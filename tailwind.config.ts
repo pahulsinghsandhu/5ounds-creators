@@ -16,8 +16,8 @@ const config: Config = {
         card: "#141414",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-playfair)", "Georgia", "serif"],
+        sans: ["var(--font-outfit)", "sans-serif"],
+        heading: ["var(--font-outfit)", "sans-serif"],
       },
     },
   },

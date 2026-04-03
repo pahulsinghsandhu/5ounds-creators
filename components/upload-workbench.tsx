@@ -170,11 +170,11 @@ export function UploadWorkbench(props: {
           <div>
             <p className="text-sm text-cream/55">Producer</p>
             <div className="mt-1 flex flex-wrap items-center gap-3">
-              <h1 className="font-display text-2xl italic text-cream">
+              <h1 className="font-sans text-2xl font-bold text-cream">
                 {props.producerName}
               </h1>
               {props.verified ? (
-                <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-medium text-emerald-200 ring-1 ring-emerald-500/35">
+                <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-normal text-emerald-200 ring-1 ring-emerald-500/35">
                   Verified
                 </span>
               ) : (
@@ -268,7 +268,7 @@ export function UploadWorkbench(props: {
               <div
                 className={`hairline-border rounded-xl border border-solid p-5 ${gateBorder(gate1, gate1 === "fail")}`}
               >
-                <h3 className="font-medium text-cream">Gate 1 · Format check</h3>
+                <h3 className="font-bold text-cream">Gate 1 · Format check</h3>
                 <p className="mt-2 text-sm text-cream/60">
                   Wav, aiff, or mp3 · Min 90s · Max 500mb · Stereo 44.1khz+
                 </p>
@@ -285,7 +285,7 @@ export function UploadWorkbench(props: {
               <div
                 className={`hairline-border rounded-xl border border-solid p-5 ${gateBorder(gate2, gate2 === "fail")}`}
               >
-                <h3 className="font-medium text-cream">
+                <h3 className="font-bold text-cream">
                   Gate 2 · Vocal detection gate
                 </h3>
                 <p className="mt-2 text-sm text-cream/60">
@@ -305,7 +305,7 @@ export function UploadWorkbench(props: {
               <div
                 className={`hairline-border rounded-xl border border-solid p-5 ${gateBorder(gate3, gate3 === "fail")}`}
               >
-                <h3 className="font-medium text-cream">
+                <h3 className="font-bold text-cream">
                   Gate 3 · Loudness check
                 </h3>
                 <p className="mt-2 text-sm text-cream/60">
@@ -328,7 +328,7 @@ export function UploadWorkbench(props: {
 
             {gate2 === "fail" && vocalTs.length > 0 ? (
               <div className="hairline-border rounded-xl border border-amber-500/35 bg-amber-500/5 p-5">
-                <p className="font-medium text-amber-100">
+                <p className="font-bold text-amber-100">
                   Track rejected · vocals detected
                 </p>
                 <p className="mt-2 text-sm text-cream/70">
@@ -345,7 +345,7 @@ export function UploadWorkbench(props: {
 
             {allPass ? (
               <div className="hairline-border rounded-xl border border-emerald-500/35 bg-emerald-500/5 p-5">
-                <p className="font-medium text-emerald-100">
+                <p className="font-bold text-emerald-100">
                   Track passed all gates · processing started
                 </p>
                 <p className="mt-2 text-sm text-cream/75">
@@ -366,7 +366,7 @@ export function UploadWorkbench(props: {
             ) : null}
 
             <section>
-              <h2 className="font-display text-xl italic text-cream">
+              <h2 className="font-sans text-xl font-bold text-cream">
                 Transformation targets
               </h2>
               <p className="mt-2 text-sm text-cream/55">
@@ -393,7 +393,7 @@ export function UploadWorkbench(props: {
                           : "border-white/[0.1] bg-card text-cream/70"
                       }`}
                     >
-                      <span className="block font-medium">{s.label}</span>
+                      <span className="block font-normal">{s.label}</span>
                       <span className="mt-1 block text-xs text-cream/45">
                         {s.hz} hz
                       </span>

@@ -9,10 +9,10 @@ export default function ApplyPage() {
           href="/"
           className="flex items-baseline gap-2 text-violet transition-opacity hover:opacity-90"
         >
-          <span className="font-display text-2xl italic leading-none">
+          <span className="font-sans text-2xl font-bold leading-none">
             &#8767;
           </span>
-          <span className="font-display text-xl italic tracking-tight">
+          <span className="font-sans text-xl font-bold tracking-tight">
             5ounds
           </span>
         </Link>
