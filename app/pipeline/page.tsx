@@ -2,6 +2,8 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
+export const dynamic = "force-dynamic";
+
 const STAGES: { key: string; label: string; description: string }[] = [
   { key: "upload", label: "Upload", description: "Master received and checksum verified." },
   {

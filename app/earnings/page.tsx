@@ -2,6 +2,8 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
+export const dynamic = "force-dynamic";
+
 function gbp(n: number) {
   return new Intl.NumberFormat("en-GB", {
     style: "currency",

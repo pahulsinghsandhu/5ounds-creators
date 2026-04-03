@@ -2,6 +2,8 @@ import { redirect } from "next/navigation";
 import { UploadWorkbench } from "@/components/upload-workbench";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
+export const dynamic = "force-dynamic";
+
 export default async function UploadPage() {
   const supabase = createServerSupabaseClient();
   const {
