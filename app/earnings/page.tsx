@@ -27,6 +27,42 @@ type PayoutRow = {
   created_at: string | null;
 };
 
+const PREVIEW_TRACKS: TrackRow[] = [
+  { id: "preview-e-1", title: "North line instrumental" },
+];
+
+const PREVIEW_VERSIONS: VersionRow[] = [
+  {
+    track_id: "preview-e-1",
+    scene_slug: "study",
+    stream_count: 12500,
+  },
+  {
+    track_id: "preview-e-1",
+    scene_slug: "sleep",
+    stream_count: 8200,
+  },
+];
+
+const PREVIEW_PAYOUTS: PayoutRow[] = [
+  {
+    id: "preview-payout-1",
+    amount: "210.4",
+    period_start: "2026-01-01",
+    period_end: "2026-01-31",
+    status: "paid",
+    created_at: "2026-02-05T12:00:00Z",
+  },
+  {
+    id: "preview-payout-2",
+    amount: "94.1",
+    period_start: "2025-12-01",
+    period_end: "2025-12-31",
+    status: "pending",
+    created_at: "2026-01-02T09:00:00Z",
+  },
+];
+
 export default async function EarningsPage() {
   const supabase = createServerSupabaseClient();
   const {
@@ -51,8 +87,9 @@ export default async function EarningsPage() {
   const producerId = producer?.id as string | undefined;
   const stripeId =
     (producer as { stripe_account_id?: string } | null)?.stripe_account_id ??
-    null;
+    (!user ? "acct_preview_review" : null);
   const approved =
+    !user ||
     ["approved", "verified"].includes(
       ((producer as { status?: string } | null)?.status ?? "").toLowerCase(),
     );
@@ -83,6 +120,10 @@ export default async function EarningsPage() {
       .eq("producer_id", producerId)
       .order("created_at", { ascending: false });
     payouts = (p ?? []) as PayoutRow[];
+  } else if (!user) {
+    tracks = PREVIEW_TRACKS;
+    versions = PREVIEW_VERSIONS;
+    payouts = PREVIEW_PAYOUTS;
   }
 
   const trackTitle = (id: string) =>
@@ -205,7 +246,7 @@ export default async function EarningsPage() {
             Connect your Stripe account to receive monthly payouts. Onboarding
             opens in a new window and returns you here when complete.
           </p>
-          {!approved ? (
+          {!approved && user ? (
             <p className="mt-3 text-sm text-amber-200/90">
               Stripe Connect unlocks after curation approves your producer
               application.

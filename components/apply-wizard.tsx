@@ -85,7 +85,6 @@ function stepBadge(complete: boolean, label: string) {
 
 export function ApplyWizard() {
   const [userId, setUserId] = useState<string | null>(null);
-  const [authChecked, setAuthChecked] = useState(false);
   const [producer, setProducer] = useState<ProducerRow | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
 
@@ -140,8 +139,6 @@ export function ApplyWizard() {
         if (!cancelled) {
           setLoadError(e instanceof Error ? e.message : "Could not load session");
         }
-      } finally {
-        if (!cancelled) setAuthChecked(true);
       }
     })();
     return () => {
@@ -329,14 +326,6 @@ export function ApplyWizard() {
     ],
     [],
   );
-
-  if (!authChecked) {
-    return (
-      <div className="mx-auto max-w-3xl px-6 py-20 text-center text-cream/60">
-        Loading application
-      </div>
-    );
-  }
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-12 md:py-16">

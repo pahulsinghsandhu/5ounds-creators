@@ -113,6 +113,50 @@ function buildNotifications(
   return list;
 }
 
+const PREVIEW_TRACKS: TrackRow[] = [
+  {
+    id: "preview-track-1",
+    title: "Aurora drift (sample)",
+    status: "live",
+    quality_score: 88,
+  },
+  {
+    id: "preview-track-2",
+    title: "Studio lock-in",
+    status: "processing",
+    quality_score: 72,
+  },
+];
+
+const PREVIEW_VERSIONS: VersionRow[] = [
+  {
+    id: "preview-v-1",
+    track_id: "preview-track-1",
+    scene_slug: "sleep",
+    stream_count: 18420,
+    status: "live",
+  },
+  {
+    id: "preview-v-2",
+    track_id: "preview-track-1",
+    scene_slug: "study",
+    stream_count: 9021,
+    status: "live",
+  },
+  {
+    id: "preview-v-3",
+    track_id: "preview-track-2",
+    scene_slug: "meditation",
+    stream_count: 0,
+    status: "processing",
+  },
+];
+
+const PREVIEW_PAYOUTS: PayoutRow[] = [
+  { amount: "124.5", status: "pending" },
+  { amount: "89.2", status: "paid" },
+];
+
 export default async function DashboardPage() {
   const supabase = createServerSupabaseClient();
   const {
@@ -158,6 +202,10 @@ export default async function DashboardPage() {
       .select("amount, status")
       .eq("producer_id", resolvedProducerId);
     payouts = (p ?? []) as PayoutRow[];
+  } else if (!user) {
+    tracks = PREVIEW_TRACKS;
+    versions = PREVIEW_VERSIONS;
+    payouts = PREVIEW_PAYOUTS;
   }
 
   const tracksLive = tracks.filter(
@@ -186,7 +234,7 @@ export default async function DashboardPage() {
           </h1>
           <p className="text-sm text-cream/55">
             {!user
-              ? "Review preview · Sign in to load your producer data."
+              ? "Review preview · Sample catalogue below. Sign in to load live data."
               : producer?.name
                 ? `${producer.name} · ${(producer as { status?: string }).status ?? "pending"}`
                 : "Complete your application to unlock uploads."}
